@@ -7,6 +7,9 @@ body {
     font-family:'Zen Kaku Gothic New';
     font-size: 16px;
     margin: 0;
+    background: linear-gradient(180deg, #e0f7fa 0%, #b3e5fc 100%);
+    background-attachment: fixed; 
+    min-height: 100vh;
 }
 header {
     background: url(../images/shati.jpg);
@@ -14,6 +17,7 @@ header {
     background-size: cover;/* 画像を要素サイズに合わせて拡大縮小 */
     background-position: center;/* 画像の中心を合わせる */
     background-repeat: no-repeat;
+    margin-top: 50px;
 }
 
 h1 {
@@ -32,32 +36,121 @@ h1 {
         2px 0px 0 #4a76a8,
         -2px 0px 0 #4a76a8; /* 文字に太い縁取り。上下左右＋斜め 8方向 に影を出している */
 }
-h2 {
+
+
+
+.sectionTitle {
     width: 100%;
     font-size: 36px;
     font-weight: bold;
-    text-align: left;
-    background-image: url(../images/uni.png);
-    background-repeat: no-repeat;
-    padding: 20px 10px 20px 48px;
-    background-size: 36px 36px;      /* ★ 画像を縮小 */
-    background-position: left center; /* ★ 左＋縦中央 */
+    display: flex;
+    justify-content: center;  /* 中央寄せ */
+    align-items: center;
+    gap: 12px;                /* 画像と文字の間隔 */
+    margin-top: 48px;
     margin-bottom: 24px;
 }
 
-.worksUl {
-    background-color: aqua;
-    display: block;
+.sectionTitle::before,
+.sectionTitle::after {
+    content: "";
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-image: url(../images/uni.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+.sectionTitle:hover::before,
+.sectionTitle:hover::after {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 6px rgba(255, 140, 0, 0.6));
 }
 
+.worksLead {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.worksItem {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    height: 450px;
+    display: flex;
+    flex-direction: column;  /* 上から縦に並べる */
+}
+.githubLink,
+.githubLink2,
+.githubLink3 {
+    text-align: right;
+    margin-top: auto;
+}
+.worksDisclaimer,
+.contactDisclaimer {
+    text-align: center;
+    margin-top: 28px;
+    margin-bottom: 28px;
+}
+.contactNotice {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.contactInfo a {
+    color: #0077cc;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+.contactInfo a:hover {
+    color: #005fa3;
+}
 /* トップへ戻るボタン */
 .toTopIcon {
-        position: fixed; 
-        right: 20px; 
-        bottom: 20px; 
-        z-index: 999;  
-        transform: none; /* モバイル版の変な横ズレをリセット */
+    position: fixed; 
+    right: 20px; 
+    bottom: 20px; 
+    z-index: 999;
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: center;    /* 中央揃え */
+    gap: 2px;               /* イルカと文字の隙間 */
+    transition: all 0.3s ease;
 }
+/* イルカ画像の設定 */
+.toTopIcon img {
+    width: 70px; /* 少し大きめの方が可愛いかもしれません */
+    height: 70px;
+    object-fit: contain;   /* 画像を枠内に収める */
+    background-color: #e0f7fa; /* 背景を白（または薄い水色）に */
+    border-radius: 50%;    /* これで丸くなります */
+    border: 3px solid #0077b6;
+    box-shadow: 0 0 20px rgba(0, 119, 182, 0.4); /* これが水しぶき風の影 */
+    padding: 5px;          /* イルカが端に当たらないように隙間を作る */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ジャンプ感が出る動き */
+}
+
+
+/* 「TOPに戻る」文字の設定 */
+.toTopText {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0077b6; /* イルカの色に近い青 */
+    text-shadow: 1px 1px 2px white; /* 背景が重なっても見やすく */
+}
+/* マウスを乗せた時の演出 */
+.toTopLink:hover .toTopIcon img {
+    /* イルカが少し上にジャンプして右に傾く（可愛さアップ！） */
+    transform: translateY(-15px) rotate(10deg);
+}
+.toTopLink:hover .toTopText {
+    color: #00b4d8; /* ホバー時に文字色も少し明るく */
+}
+
+
+
+
 
 /*ローディング*/
 .loading {
@@ -101,7 +194,7 @@ h2 {
 /* ハンバーガー */
 .hamburger {
     position: fixed;
-    top: 10px;
+    top: 50px;
     right: 10px;
     font-size: 30px;
     font-size: 36px;      /* 大きくする */
@@ -158,12 +251,14 @@ h2 {
 
 .formItem {
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 label {
     display: block;
     margin-bottom: 6px;
     font-weight: bold;
+    text-align: center;
 }
 input,
 textarea {
@@ -172,9 +267,11 @@ textarea {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;/* 幅計算の崩れ防止*/
 }
 button {
-    width: 100%;
+    width: fit-content;
     padding: 10px;
     font-size: 16px;
     background: #666;
@@ -220,46 +317,104 @@ button:hover {
 section a {
     font-weight: bold;
 }
-.seisakubutu a {
-    text-decoration: underline;
+.worksLink1,.worksLink2,.worksLink3 {
     display: block;
-    text-align: center;
-    background-color: mediumaquamarine;
-    width: 100px;
+    height: auto;
     margin: 20px auto;
-    border-radius: 20px;
-    padding: 10px 0;
+    text-align: center;
+    font-size: 20px;
 }
-.seisakubutu2 a {
-    text-decoration: underline;
-    display: block;
-    text-align: center;
-    background-color: mediumaquamarine;
-    width: 100px;
-    margin: 20px auto;
-    border-radius: 20px;
-    padding: 10px 0;
+.worksGithub1,.worksGithub2,.worksGithub3 {
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: #24292f;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.worksGithub1:hover,
+.worksGithub2:hover,
+.worksGithub3:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
 
-.seisakubutu ul {
-    width: 220px;
+.seisakubutu ul,
+.seisakubutu2 ul,
+.seisakubutu3 ul {   
     margin-top: 20px;
 }
 
-.seisakubutu2 ul {
-    width: 220px;
-    margin-top: 20px;
+
+/* Worksの各アイテムの並びや余白 */
+.worksItem {
+    margin-bottom: 40px;
+    /* もし横に並べたいならここにflexなどを入れますが、まずは縦並びでサイズを揃えます */
+}
+.worksContainer {
+    display: flex;
+    flex-direction: column; /* 基本は縦 */
+    gap: 30px;              /* アイテム同士の隙間 */
+}
+/* 画像のサイズを強制的に揃える魔法のコード */
+.worksItem img {
+    width: 100%;          /* 親要素の幅いっぱいに広げる */
+    max-width: 500px;     /* 大きくなりすぎないように制限（お好みで） */
+    height: 200px;        /* 高さを一定に固定する */
+    
+    /* これが重要！画像を無理やり引き伸ばさず、枠内に収める */
+    object-fit: cover;    
+    
+    border-radius: 10px;  /* ついでに角を丸くするとオシャレ */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 軽い影 */
+    transition: transform 0.5s ease; /* ズームの速さを設定 */
+}
+/* 画像を包む枠（共通設定） */
+.imgBox {
+    overflow: hidden;          /* 枠からはみ出た画像を隠す */
+    border: 3px solid #eeeeee; /* 初期状態の薄いグレー */
+    border-radius: 10px;       /* 角を少し丸く */
+    margin-bottom: 15px;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease; /* 変化をなめらかに */
+    cursor: pointer;
+}
+/* ホバー時の共通アクション：画像を大きくする */
+.imgBox:hover .worksImage {
+    transform: scale(1.1); /* 1.1倍にズーム */
 }
 
-.seisakubutu3 {
-    margin: 40px 0 ;
+/* ホバー時の個別アクション：枠線の色を変える（キャメルケース） */
+.renovationBox:hover {
+    border-color: #3498db; /* リフォームサイト：青 */
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* ほんのり光る */
 }
 
-.contactText {
+.taiwanBox:hover {
+    border-color: #e74c3c; /* 台湾観光サイト：赤 */
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.donutBox:hover {
+    border-color: #ffb6c1; /* ドーナッツサイト：ピンク */
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
+
+.contactLead {
     margin: 30px 0 ;
+    text-align: center;
 }
-
+.contactInfo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 8px 16px;
+    
+}
 .sectionP1,
 .sectionP2,
 .sectionP3 {
@@ -269,6 +424,121 @@ section a {
     margin: 40px 0;
 }
 /* 見出しの先頭にアイコンをつけるP136 */
+
+.bbsBox {
+    
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin: 40px 0;
+}
+.bbsBoxLead {
+    text-align: center;
+}
+.postIt {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #3498db;
+    border-radius: 30px 30px 30px 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.postIt:hover {
+    transform: translateY(-5px);
+    background-color: #ffffff;
+}
+
+.postName {
+    color: #0077be;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.postDate {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.postMessage {
+    margin-top: 10px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 削除ボタンのスタイル */
+.deleteBtn {
+    color: #e74c3c;        
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 0.7rem;
+    transition: opacity 0.3s ease;
+}
+
+.deleteBtn:hover {
+    opacity: 0.6;          /* ホバーした時に少し薄くなって「押せる感」を出す */
+    text-decoration: underline;
+}
+/* 送信完了メッセージのスタイル */
+.fadeOutMsg {
+    color: #27ae60;
+    background: #d4efdf;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #27ae60;
+    
+    /* 透明度が変わる時に1秒かけて変化させる設定 */
+    transition: opacity 1s ease;
+    opacity: 1; /* 最初はくっきり表示 */
+}
+.submitBtn {
+    /* --- 幅の調整 --- */
+    width: fit-content;        /* これで文字の幅にぴったり合います */
+    display: flex;             /* アイコンと文字を横並びに */
+    align-items: center;       /* 垂直方向の真ん中に揃える */
+    justify-content: center;   /* 中身を中央寄せ */
+    margin: 0 auto;            /* もしボタン自体を中央に置きたいならこれ */
+    margin-bottom: 30px;
+    gap: 10px;                 /* アイコンと文字の間のスキマ */
+    /* --- デザイン --- */
+    padding: 10px 25px;
+    background-color: #0077b6; /* 海の青（お好みの色に調整してください） */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    /* --- 浮き上がりのための準備 --- */
+    transition: all 0.3s ease;    /* 動きを滑らかにする */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 最初は薄い影 */                 
+}
+
+/* 矢印を少し浮かせて動きを出す設定 */
+.submitBtn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* マウスを乗せた時の動き */
+.submitBtn:hover {
+    background-color: #005f8d; /* 少し濃い青に */
+    /* 上に3px持ち上げる（これで浮いたように見えます） */
+    transform: translateY(-3px); 
+    
+    /* 影を少し深く、広くして「浮いた距離」を表現する */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn:hover .arrow {
+    transform: translateX(5px); /* 矢印だけ右にピョコッと動く */
+}
+
+.sectionP1 {
+    font-size: 24px;
+}
 
 /*   PC用のメディアクエリ 画面幅768px以上に適用させるp198 p256*/
 @media screen and (min-width: 768px) {
@@ -284,7 +554,7 @@ section a {
         height: 64px; 
         background-color: rgba(0, 0, 0, 0.25);
         position: fixed;
-        top: 0px;
+        top: 50px;
         left: 0;
         right: 0px;
         
@@ -306,6 +576,25 @@ section a {
     .drawerLi .itemA {
         display: none;
     }
-
     
+    .worksBox {
+    text-align: left; /* 全体を左寄せに */
+    }
+    a {
+        text-align: left;
+    }
+    .worksContainer {
+        flex-direction: row;    /* 横並びに変更 */
+        justify-content: space-between; /* 均等に配置 */
+        align-items: flex-start;
+    }
+
+    .worksItem {
+        width: 31%;             /* 3つ並ぶように幅を調整（少し余白を残す） */
+        margin-bottom: 0;       /* 縦並び用のマージンを消す */
+    }
+    
+    .worksItem img {
+        height: 180px;          /* 横に並ぶので、高さは少し控えめにすると綺麗 */
+    }
 }

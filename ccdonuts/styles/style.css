@@ -1,0 +1,490 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 16px;
+}
+.headerIcons {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+.logo {
+    height: 60px;
+    margin: 0 auto;
+}
+
+.mainHeader {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* コンテンツより上に表示されるように */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 少し影をつけると浮いて見えます */
+    background-color: #ede0d4
+    
+}
+.rightIcons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* 上下中央揃え */
+    gap: 20px; /* アイコン間の距離（適宜調整） */
+}
+/* ログインとカートの各ブロック */
+.login, .cart {
+    display: flex;
+    align-items: center;
+}
+
+/* pictureタグの中の画像を制御 */
+.login picture, .cart picture {
+    display: block; /* 余計な隙間を排除 */
+    line-height: 0; /* 下にできる数ミリの隙間対策 */
+}
+
+/* PC版の画像サイズを指定（ここが重要！） */
+.login img, .cart img {
+    
+}
+
+
+.hero {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.sub {
+    background-size: contain;
+    width: 100%;
+}
+
+.philosophySec {
+    width: 100%;
+    background-image: url("../images/pcHaikei.png");
+    height: 667px;
+    display: flex;
+    flex-direction: column;   /* 中の要素を縦に並べる */
+    justify-content: center;  /* 垂直方向（上下）の中央 */
+    align-items: center;      /* 水平方向（左右）の中央 */
+    text-align: center;
+}
+.philosophy1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+.philosophy2 {
+    color: #fff;
+    font-size: 20px;
+    margin: 5px 0 20px 0;
+}
+.philosophy3 {
+    color: #fff;
+    font-size: 24px;
+    margin: 5px 0;
+}
+.philosophy4 {
+    color: #fff;
+    font-size: 24px;
+    margin: 5px 0;
+}
+h1 {
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto 15px auto;
+}
+hr {
+    border: none;
+    height: 1px;
+    width: 224px;
+    background-color: #ffd233;
+    margin: 20px auto;
+}
+.ranking {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 1列の幅を均等(1fr)にして、3列作成する */ 
+  justify-items: center;
+  width: 100%;  
+}
+.box1, .box2, .box3, .box4, .box5, .box6 {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: flex-start; /* ★基本はすべて「左寄せ」にする */
+    width: 100%;
+    margin: 50px 10px;
+}
+.number11, .number22, .number33, .number44, .number55, .number66 {
+    width: 100%;           /* 横幅いっぱいにして */
+    display: flex;
+    justify-content: center; /* 中身（数字）を中央へ */
+    margin-bottom: 10px;
+}
+.number1 {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffd233;
+    color: #fff;
+    display: flex;
+    justify-content: center; /* 左右中央 */
+    align-items: center;     /* 上下中央 */
+}
+.number2 {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #d9d9d9;
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+}
+.number3 {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #d27c2c;
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.number4, .number5, .number6 {
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    background-color: #e8c2ca;
+    color: #fff;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.box1 img, .box2 img, .box3 img, .box4 img, .box5 img, .box6 img {
+    align-self: center;    /* ★これを使うと、この要素だけ中央に寄る */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box; /* これを入れると幅の計算が正確になります */
+}
+.itemName {
+    font-size: 24px;
+    color: #7F5539;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    min-height: 3em;    /*商品名が1行でも2行分の高さをキープ*/
+    width: 100%; /* ボックスいっぱいに広げる */
+    box-sizing: border-box; /* パディングを含めて100%にする */
+}
+.itemPrice {
+    font-size: 24px;
+    color: #bf0000;
+    padding-left: 20px;
+}
+.addCart {
+    font-size: 20px;
+    background-color: #7F5539;
+    color: #fff;
+    cursor: pointer; /* マウスを乗せた時に指マークにする */
+    padding: 10px 40px;
+}
+.addCartP {
+    width: 100%;           /* 横幅いっぱいにして */
+  display: flex;
+  justify-content: center; /* 中身（ボタン）を中央へ */
+  margin-top: 15px;
+}
+.number2 {
+    text-align: center;
+}
+.number3 {
+    text-align: center;
+}
+.number4 {
+    text-align: center;
+}
+.number5 {
+    text-align: center;
+}
+.number6 {
+    text-align: center;
+}
+
+/* メニューを画面上部に固定表示しています */
+.gMenu {
+  position: fixed;
+  right: 0;
+  top: 30px;
+  width: 100%;
+  z-index: 99;
+}
+/* メニューアイコンを画面右上に固定しています */
+.gMenu .menuIcon {
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+  padding-top: 5px;
+  height: 12px;
+}
+/* メニューアイコン（三本線）の真ん中の線です */
+.gMenu .menuIcon .navicon {
+  background: #ffc107; /* 色は自由に変更可能です */
+  display: block;
+  height: 2px; /* 太さ */
+  width: 31px; /* 長さ */
+  position: relative;
+  transition: background .4s ease-out; /* 形が変わる時のアニメーション */
+}
+/* メニューアイコン（三本線）の上と下の線を疑似要素で追加 */
+.gMenu .menuIcon .navicon::before,
+.gMenu .menuIcon .navicon::after {
+  background: #ffc107; /* 色は自由に変更可能です */
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .4s ease-out; /* 形が変わる時のアニメーション */
+  width: 100%;
+}
+.gMenu .menuIcon .navicon::before {top: 10px;} /* 位置を上にずらしています */
+.gMenu .menuIcon .navicon::after {top: -10px;} /* 位置を下にずらしています */
+/* 表示されるメニューです */
+.gMenu .menu {
+  background-color: rgba(255,255,255,0.9);
+  overflow: hidden;
+  max-height: 0; /* ★最初は高さを0にして非表示状態に */
+  transition: max-height .6s; /* 表示されるときのアニメーション */
+  text-align: center;
+}
+/* メニュー部分のデザインです */
+.gMenu .menu li:first-of-type {
+  padding-top: 50px;
+}
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.gMenu .menu li a:hover {
+  background-color: #f4f4f4;
+}
+/* チェックボックスは常に非表示です */
+.gMenu .menuBtn {
+  display: none;
+}
+/* ▼▼▼以下はチェックボックスがONの時の状態です▼▼▼ */
+.gMenu .menuBtn:checked ~ .menu {
+  max-height: 500px; /* ★チェックボックスがオンの時高さを500pxにして表示させます */
+  transition: max-height .6s;
+}
+/* メニューボタンの中央の線を非表示に */
+.gMenu .menuBtn:checked ~ .menuIcon .navicon {background: transparent;}
+
+/* メニューボタンの上下の線を45度傾けて✕印を作ります */
+.gMenu .menuBtn:checked ~ .menuIcon .navicon::before {transform: rotate(-45deg);top: 0;}
+.gMenu .menuBtn:checked ~ .menuIcon .navicon::after {transform: rotate(45deg);top: 0;}
+/* サイトに合わせてオリジナルカスタマイズ */
+.gMenu .menuIcon {
+  top: 26px;
+}
+.gMenu .menuIcon .navicon,
+.gMenu .menuIcon .navicon::before,
+.gMenu .menuIcon .navicon::after {
+  background: #333333;
+}
+footer {
+    background-color: #ede0d4;
+}
+.footerLine {
+    border: none;
+    height: 1px;
+    background-color: #7F5539;
+    width: 100%;
+}
+.fLink {
+    display: flex;
+    color: #7F5539
+
+}
+.fText {
+    margin: 20px;
+}
+.footerLogo {
+    width: 100%;
+    text-align: center;
+    margin: 40px 0 ;
+}
+.footerSnsIcon {
+    width: 100%;
+    text-align: center;
+}
+.faceIcon {
+    margin: 20px 0;
+}
+.instaIcon {
+    margin: 20px;
+}
+.twiIcon {
+    margin: 20px 0;
+}
+.cRight {
+    text-align: center;
+    color: #7F5539;
+}
+
+/* 商品一覧ページ（products.php）_________________________________________________________________________ */
+
+.mainMenuBox {
+  display: grid;
+  grid-template-columns: repeat(3, 280px); /* 横幅固定 */
+  justify-content: center;                /* 中央寄せ */
+  gap: 40px;                              /* カード間の余白 */
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.title {
+  text-align: center;
+  font-size: 32px;
+  text-decoration: underline;
+  text-decoration-color: #ffd233;
+   text-underline-offset: 20px;
+  padding-top: 50px;
+}
+.sectionTitle {
+ text-align: center;
+ font-size: 24px;
+ padding-top: 100px;
+}
+
+.itemBox {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemBox img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;  
+    
+}
+.itemName {
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+.itemPrice {
+  color: #b00000;
+  font-weight: bold;
+  margin: 8px 0;
+}
+.addCart {
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 8px 0;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addCart:hover {
+  opacity: 0.8;
+}
+
+
+
+
+
+/* レスポンシブ対応_________________________________________________________________________ */
+
+@media screen and (max-width: 768px) {
+  .ranking {
+    /* 1列の幅を均等(1fr)にして、2列作成する */
+    grid-template-columns: repeat(2, 1fr);
+    /* スマホに合わせて隙間を少し狭くしてもOK */
+    gap: 15px; 
+  }
+
+
+  
+  /* ここからproducts.php（商品一覧ページ）___________________________________________________ */
+  h2 {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto 0 auto;
+   }
+  hr {
+    border: none;
+    height: 1px;
+    width: 80px;
+    background-color: #ffd233;
+    
+   }
+  h3 {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: #7F5539;
+   }
+  .mainMenuBox,.VarietySetBox  {
+    grid-template-columns: repeat(2, 1fr);/* 1列の幅を均等(1fr)にして、2列作成する */
+    gap: 15px; /* スマホに合わせて隙間を少し狭くしてもOK */
+  }
+  .itemName {
+    font-size: 16px;
+    color: #7F5539;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    min-height: 5em;    /*商品名が1行でも3行分の高さをキープ*/
+}
+  .itemPrice {
+    font-size: 16px;
+    color: #bf0000;
+    padding-left: 20px;
+}
+  .addCart {
+    font-size: 12px;
+    background-color: #7F5539;
+    color: #fff;
+    cursor: pointer; /* マウスを乗せた時に指マークにする */
+    padding: 10px 30px;
+}
+  .addCartP {
+    display: flex;
+    justify-content: center; /* 中身（ボタン）を中央へ */
+    margin-top: 15px;
+}
+  /* ここからheader.php（商品一覧ページ）_______________________________________*/
+   .headerIcons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px; /* 左右に少し余白 */
+    background-color: #f2e3d5; /* 画像に近い背景色（参考） */
+    }
+    .gMenu, .logo, .rightIcons {
+    flex: 1; /* 3つの要素が同じ最大幅を持とうとする */
+    }
+    .gMenu {
+    display: flex;
+    justify-content: flex-start;
+    }
+    /* 中央：ロゴを中央寄せ */
+    .logo {
+    display: flex;
+    justify-content: center;
+    }
+
+   .rightIcons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px; /* アイコン同士の隙間 */
+   }
+}

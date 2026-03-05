@@ -1,0 +1,32 @@
+/* ここからproducts.php（商品一覧ページ）_______________________________________ */
+.mainMenuBox,.VarietySetBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 1列の幅を均等(1fr)にして、3列作成する */ 
+  justify-items: center;
+  width: 100%;  
+}
+.box7, .box8, .box9, .box10, .box11, .box12,.box13, .box14, .box15, .box16, .box17, .box18 {
+    display: flex;
+    flex-direction: column; /* 縦に並べる */
+    align-items: flex-start; /* ★基本はすべて「左寄せ」にする */
+    width: 100%;
+    margin: 50px 10px;
+}
+.box7 img, .box8 img, .box9 img, .box10 img, .box11 img, .box12 img,.box13 img,
+.box14 img, .box15 img, .box16 img, .box17 img, .box18 img {
+    align-self: center;    /* ★これを使うと、この要素だけ中央に寄る */
+    width: 100%;
+    padding: 20px;
+}
+h2 {
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto 15px auto;
+}
+h3 {
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    color: #7F5539;
+}
