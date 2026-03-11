@@ -1,4 +1,6 @@
 <?php
+
+
 // 追加・更新処理
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -46,3 +48,8 @@ $todos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt = $pdo->query("SELECT SUM(study_time) AS total_time FROM todos");
 $total = $stmt->fetch(PDO::FETCH_ASSOC);
 $total_time = $total['total_time'] ?? 0;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' || isset($_GET['delete'])) {
+    header('Location: studyTracker.php');
+    exit;
+}
