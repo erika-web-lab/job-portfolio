@@ -1,11 +1,13 @@
 <?php
 // エラー表示設定（開発中のみ）
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once('includes/dbConnect.php');  // まずDBに繋ぐ
 require_once('includes/bbsLogic.php');   // 次に掲示板の計算をする
 require_once('includes/contactLogic.php');
+require_once('includes/studyTrackerLogic.php');
 ?>
  
 <!DOCTYPE html>
@@ -77,7 +79,7 @@ require_once('includes/contactLogic.php');
                             <li>使用技術：HTML、CSS</li>
                         </ul>
                         <p class="githubText">ソースコードはGitHubにて公開しています</p>
-                        <p class="githubLink"><a href="https://github.com/erikadate910-blip/job-portfolio/tree/main/renovationwebsite" class="worksGithub1" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
+                        <p class="githubLink"><a href="https://github.com/erika-web-lab/job-portfolio/tree/main/renovationwebsite" class="worksGithub1" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
                     </div>
 
                     <div class="seisakubutu2 worksItem">
@@ -92,25 +94,42 @@ require_once('includes/contactLogic.php');
                             <li>使用技術：HTML、CSS、JavaScript</li>
                         </ul>
                         <p class="githubText">ソースコードはGitHubにて公開しています</p>
-                        <p class="githubLink2"><a href="https://github.com/erikadate910-blip/job-portfolio/tree/main/taiwan" class="worksGithub2" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
+                        <p class="githubLink2"><a href="https://github.com/erika-web-lab/job-portfolio/tree/main/taiwan" class="worksGithub2" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
                     </div>
 
                     <div class="seisakubutu3 worksItem">
                         <div class="imgBox donutBox">
-                            <a href="donut/index.html" target="_blank" rel="noopener noreferrer">
+                            <a href="ccdonuts/index.php" target="_blank" rel="noopener noreferrer">
                                 <img src="images/donut.png" alt="ドーナッツサイト" class="worksImage">
                             </a>
                         </div>
-                        <p><a href="" class="worksLink3" target="_blank" rel="noopener noreferrer">ドーナッツサイト</a></p>
+                        <p><a href="ccdonuts/index.php" class="worksLink3" target="_blank" rel="noopener noreferrer">ドーナッツサイト</a></p>
                         <ul class="worksDetail">
                             <li>制作時間：時間</li>
                             <li>使用技術：HTML、CSS、PHP</li>
                         </ul>
                         <p class="githubText">ソースコードはGitHubにて公開しています</p>
-                        <p class="githubLink3"><a href="https://github.com/..." class="worksGithub3" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
+                        <p class="githubLink3"><a href="https://github.com/erika-web-lab/job-portfolio/tree/main/ccdonuts" class="worksGithub3" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
                     </div>
                 </div>
-                
+                <div class="worksContainer2">
+                    <div class="seisakubutu4 worksItem2">
+                        <div class="imgBox studyBox">
+                            <a href="donut/index.html" target="_blank" rel="noopener noreferrer">
+                                <img src="images/study.jpg" alt="スタディトラッカー" class="worksImage">
+                            </a>
+                        </div>
+                        <p><a href="studyTracker.php" class="worksLink3" target="_blank" rel="noopener noreferrer">スタディトラッカー</a></p>
+                    
+                    <ul class="worksDetail">
+                            <li>制作時間：時間</li>
+                            <li>使用技術：HTML、CSS、PHP</li>
+                    </ul>
+                        <p class="githubText">ソースコードはGitHubにて公開しています</p>
+                        <p class="githubLink3"><a href="https://github.com/erika-web-lab/job-portfolio/blob/main/studyTracker.php" class="worksGithub3" target="_blank" rel="noopener noreferrer">⇒ソースコードはこちら</a></p>
+
+                    </div>
+                </div>
                 <p class="worksDisclaimer">※制作物は、すべて架空のサイトです。</p>
             </section>
 
@@ -164,7 +183,7 @@ require_once('includes/contactLogic.php');
             <section class="contactBox" id="contact">
                 <h2 class='sectionTitle'>Contact</h2>
 
-                <p class="contactLead">事務職を希望しております。ご質問等ございましたら、下記フォームよりご連絡ください。</p>
+                <p class="contactLead">ご質問等ございましたら、下記フォームよりご連絡ください。</p>
                 
                 <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
                     <div id="successMsg" class='fadeOutMsg'>
@@ -204,11 +223,12 @@ require_once('includes/contactLogic.php');
             <section class="profileBox">
                 <h2 id="profile" class='sectionTitle'>Profile</h2>
                 <p class="sectionP1">杉岡絵里香</p>
-                <p class="sectionP2">東京都葛飾区在住</p>
-                <p class="sectionP3">証券会社に約3年間勤務後、結婚を機に退職。
-                    その後は派遣社員として証券会社に勤務。
-                    2022年より派遣社員として証券システムの会社に勤務。
-                    2025年9月～2026年3月まで職業訓練校のWEBエンジニア育成科に通所。HTml、css、javascriptを学びました。</p>
+                <p class="sectionP2">東京都在住</p>
+                <p class="sectionP3">証券会社に約3年間勤務後、結婚を機に退職。<br>
+                    その後は派遣社員として証券会社に勤務。<br>
+                    2022年より派遣社員として証券システムの会社に勤務。<br>
+                    2025年9月～2026年3月まで職業訓練校のWEBエンジニア育成科に通所。<br>
+                    HTml、css、javascriptを学びました。</p>
             </section>
 
             
