@@ -82,6 +82,18 @@ h1 {
     display: flex;
     flex-direction: column;  /* 上から縦に並べる */
 }
+.worksItem2 {
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    height: 450px;
+    display: flex;
+    flex-direction: column;  /* 上から縦に並べる */
+    
+    margin-top: 30px;           
+    margin-bottom: 0;       /* 縦並び用のマージンを消す */
+}
 .githubLink,
 .githubLink2,
 .githubLink3 {
@@ -95,7 +107,6 @@ h1 {
     margin-bottom: 28px;
 }
 .contactNotice {
-    text-align: center;
     margin-bottom: 28px;
 }
 .contactInfo a {
@@ -250,8 +261,9 @@ h1 {
 }
 
 .formItem {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
 }
 
 label {
@@ -347,7 +359,8 @@ section a {
 
 .seisakubutu ul,
 .seisakubutu2 ul,
-.seisakubutu3 ul {   
+.seisakubutu3 ul,
+.seisakubutu4 ul {   
     margin-top: 20px;
 }
 
@@ -364,6 +377,18 @@ section a {
 }
 /* 画像のサイズを強制的に揃える魔法のコード */
 .worksItem img {
+    width: 100%;          /* 親要素の幅いっぱいに広げる */
+    max-width: 500px;     /* 大きくなりすぎないように制限（お好みで） */
+    height: 200px;        /* 高さを一定に固定する */
+    
+    /* これが重要！画像を無理やり引き伸ばさず、枠内に収める */
+    object-fit: cover;    
+    
+    border-radius: 10px;  /* ついでに角を丸くするとオシャレ */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 軽い影 */
+    transition: transform 0.5s ease; /* ズームの速さを設定 */
+}
+.worksItem2 img {
     width: 100%;          /* 親要素の幅いっぱいに広げる */
     max-width: 500px;     /* 大きくなりすぎないように制限（お好みで） */
     height: 200px;        /* 高さを一定に固定する */
@@ -401,24 +426,39 @@ section a {
 }
 
 .donutBox:hover {
-    border-color: #ffb6c1; /* ドーナッツサイト：ピンク */
+    border-color: #f8058b; /* ドーナッツサイト：ピンク */
     box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
 }
 
+.studyBox:hover {
+    border-color: #ffb6c1; /* スタディトラッカー：ピンク */
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.3);
+}
 .contactLead {
     margin: 30px 0 ;
-    text-align: center;
+    
 }
 .contactInfo {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 8px 16px;
+    border: 1px dashed #666; /* 1pxの太さ / 実線 / 濃いグレー */
+        padding: 10px;          
+        border-radius: 8px;     
+        background-color: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content; /* 中身の幅に合わせる */
     
 }
 .sectionP1,
-.sectionP2,
-.sectionP3 {
+.sectionP2 {
     margin: 20px 0;
+    text-align: center;
+}
+.sectionP3 {
+    margin: 20px auto;
+    width: 80%;
 }
 .sectionP4 {
     margin: 40px 0;
@@ -539,6 +579,123 @@ section a {
 .sectionP1 {
     font-size: 24px;
 }
+/*   スタディトラッカー*/
+/* メインのコンテナ（全体を包む白いボックス） */
+.mainContainer {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* 少し透けた白 */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトルと合計時間 */
+.studyTitle {
+    text-align: center;
+    color: #01579b;
+    margin-bottom: 10px;
+}
+
+.totalTimeDisplay {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #0277bd;
+    margin-bottom: 30px;
+}
+
+/* 登録フォーム */
+.inputForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.inputField {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #b3e5fc;
+    border-radius: 5px;
+}
+
+.submitButton {
+    padding: 10px 20px;
+    background-color: #0288d1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submitButton:hover {
+    background-color: #01579b;
+}
+
+/* 学習記録のカード */
+.studyCard {
+    background-color: #fff;
+    border: 1px solid #e1f5fe;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+}
+
+.studyCard:hover {
+    transform: translateY(-3px); /* 浮き上がる演出 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.cardInfo {
+    flex-grow: 1;
+}
+
+.cardTitle {
+    display: block;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.cardMeta {
+    font-size: 0.85rem;
+    color: #757575;
+    margin-top: 5px;
+}
+
+/* 編集・削除ボタン */
+.actionLinks a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.editLink {
+    color: #0288d1;
+    border: 1px solid #0288d1;
+}
+
+.deleteLink {
+    color: #e57373;
+    border: 1px solid #e57373;
+}
+/* グラフを包むエリア */
+.chartContainer { 
+    max-width: 450px;    /* グラフの最大幅（お好みで400px〜500px程度に） */
+    margin: 0 auto 30px; /* 左右中央に寄せて、下に余白を作る */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #e1f5fe;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* ほんの少し影をつけると馴染みます */
+}
 
 /*   PC用のメディアクエリ 画面幅768px以上に適用させるp198 p256*/
 @media screen and (min-width: 768px) {
@@ -596,5 +753,24 @@ section a {
     
     .worksItem img {
         height: 180px;          /* 横に並ぶので、高さは少し控えめにすると綺麗 */
+    }
+    .worksItem2 {
+        width: 31%;             /* 3つ並ぶように幅を調整（少し余白を残す） */
+        
+    }
+    .contactLead{
+        text-align: center;
+    }
+    .contactNotice {
+        text-align: center;
+    }
+    .contactInfo {
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content; /* 中身の幅に合わせる */
+        border: 1px dashed #666; /* 1pxの太さ / 実線 / 濃いグレー */
+        padding: 20px;          
+        border-radius: 8px;     
+        background-color: #fff; 
     }
 }
