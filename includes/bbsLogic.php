@@ -6,7 +6,7 @@ $oceanIcons = ['🐋', '🐬', '🐚', '🦀', '🦈', '🐟','🏝️'];
 
 // 2. 投稿削除の処理
 if (isset($_GET['deleteId']) && isset($_GET['adminPass'])) {
-    $adminPassword = 'sugi123'; // 管理者パスワード
+    $adminPassword = '●●●●●●●'; // 管理者パスワード
     if ($_GET['adminPass'] === $adminPassword) {
         $deleteId = (int)$_GET['deleteId'];
         $stmt = $pdo->prepare("DELETE FROM posts WHERE id = :id");
@@ -34,4 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['bbsSubmit'])) {
 
 // 4. 倉庫から全員分のデータを取ってくる
 $stmt = $pdo->query("SELECT * FROM posts ORDER BY created_at DESC");
+
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
