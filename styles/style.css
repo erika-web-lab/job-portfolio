@@ -17,7 +17,7 @@ header {
     background-size: cover;/* 画像を要素サイズに合わせて拡大縮小 */
     background-position: center;/* 画像の中心を合わせる */
     background-repeat: no-repeat;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 h1 {
@@ -205,7 +205,7 @@ h1 {
 /* ハンバーガー */
 .hamburger {
     position: fixed;
-    top: 50px;
+    top: 100px;
     right: 10px;
     font-size: 30px;
     font-size: 36px;      /* 大きくする */
@@ -220,7 +220,7 @@ h1 {
 /* ドロワー本体 */
 #drawer {
     position: fixed;
-    top: 0;
+    top: 100px;
     right: -250px;       /* 最初は画面外 */
     width: 250px;
     height: 100%;
@@ -711,7 +711,7 @@ section a {
         height: 64px; 
         background-color: rgba(0, 0, 0, 0.25);
         position: fixed;
-        top: 50px;
+        top: 100px;
         left: 0;
         right: 0px;
         
