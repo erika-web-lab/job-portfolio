@@ -105,7 +105,7 @@ require_once('includes/studyTrackerLogic.php');
                         </div>
                         <p><a href="ccdonuts/index.php" class="worksLink3" target="_blank" rel="noopener noreferrer">ドーナッツサイト</a></p>
                         <ul class="worksDetail">
-                            <li>制作時間：時間</li>
+                            <li>制作時間：18時間</li>
                             <li>使用技術：HTML、CSS、PHP</li>
                         </ul>
                         <p class="githubText">ソースコードはGitHubにて公開しています</p>
@@ -115,14 +115,14 @@ require_once('includes/studyTrackerLogic.php');
                 <div class="worksContainer2">
                     <div class="seisakubutu4 worksItem2">
                         <div class="imgBox studyBox">
-                            <a href="donut/index.html" target="_blank" rel="noopener noreferrer">
+                            <a href="studyTracker.php" target="_blank" rel="noopener noreferrer">
                                 <img src="images/study.jpg" alt="スタディトラッカー" class="worksImage">
                             </a>
                         </div>
                         <p><a href="studyTracker.php" class="worksLink3" target="_blank" rel="noopener noreferrer">スタディトラッカー</a></p>
                     
                     <ul class="worksDetail">
-                            <li>制作時間：時間</li>
+                            <li>制作時間：10時間</li>
                             <li>使用技術：HTML、CSS、PHP</li>
                     </ul>
                         <p class="githubText">ソースコードはGitHubにて公開しています</p>
